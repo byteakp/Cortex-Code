@@ -1,0 +1,71 @@
+/* General App Styling */
+Screen {
+    background: #0d1117; /* GitHub Dark Background */
+    color: #c9d1d9; /* GitHub Dark Text */
+    font-family: "JetBrains Mono", monospace;
+}
+
+/* Header and Footer */
+Header, Footer {
+    background: #161b22;
+    color: #58a6ff;
+    border-bottom: solid #30363d;
+}
+
+/* --- Input Screen --- */
+#input-container {
+    padding: 1 2;
+    max-width: 100;
+    margin: 2 auto;
+    border: round #30363d;
+}
+
+#title {
+    content-align: center middle;
+    width: 100%;
+    margin-bottom: 1;
+}
+
+Input {
+    background: #010409;
+    border: tall #30363d;
+    margin-bottom: 1;
+}
+Input:focus {
+    border: tall #58a6ff;
+}
+
+Button {
+    width: 100%;
+}
+
+/* --- Agent Screen --- */
+#main-container {
+    layout: horizontal;
+    grid-size: 2;
+    grid-columns: 3fr 1fr; /* 75% for left panel, 25% for right */
+}
+
+#left-panel {
+    border-right: solid #30363d;
+    padding: 0 1;
+}
+
+#right-panel {
+    padding: 0 1;
+}
+
+#history-title {
+    content-align: center middle;
+    width: 100%;
+    height: 3;
+    border-bottom: solid #30363d;
+}
+
+Tree {
+    padding: 1 0;
+}
+
+Panel {
+    margin: 1 0;
+}

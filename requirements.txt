@@ -1,0 +1,15 @@
+python-dotenv
+litellm
+docker
+sqlalchemy
+rich
+# For Image Generation
+diffusers
+transformers
+accelerate
+torch
+# Provider-specific SDKs
+mistralai
+groq
+# For the Rich Terminal UI
+textual
