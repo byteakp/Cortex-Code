@@ -1,4 +1,4 @@
-# 🚀 Cortex: A Self-Correcting Code Agent
+#  Cortex: A Self-Correcting Code Agent
 
 An autonomous AI agent that reasons, writes, tests, and debugs Python code in a secure sandbox.
 
