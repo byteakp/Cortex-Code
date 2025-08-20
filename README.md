@@ -1,73 +1,44 @@
-# 🚀 Self-Correcting Code Writer Agent
+# 🚀 Cortex: A Self-Correcting Code Agent
 
-This project is a fully autonomous AI agent that can write, test, and debug Python code to solve programming problems. It uses a **ReAct (Reason + Act)** framework, a secure **Docker sandbox** for execution, and a powerful **Chain of Thought (CoT)** visualization feature that generates images representing its thought process.
+An autonomous AI agent that reasons, writes, tests, and debugs Python code in a secure sandbox.
 
-![Agent in Action](https://i.imgur.com/example.gif) ## ✨ Features
+---<img width="1689" height="693" alt="Screenshot from 2025-08-20 08-14-56" src="https://github.com/user-attachments/assets/3e9bac52-6e4e-40a2-b758-778e2d758b02" />
+<img width="839" height="447" alt="Screenshot from 2025-08-20 09-06-49" src="https://github.com/user-attachments/assets/80552f0f-0fa5-4e86-bdca-d2b50db17272" />
 
--   **Autonomous Correction:** Automatically fixes runtime and logic errors.
--   **Secure Execution:** Code is run in an isolated Docker container to prevent security risks.
--   **Chain of Thought Visualization:** The agent's reasoning is turned into an image using the `FLUX.1-schnell` model.
--   **Persistent Logging:** Every step of the process is saved to an SQLite database.
--   **LLM Agnostic:** Built with `litellm` to support a wide range of models.
-    -   ✅ **Mistral Codestral**: Optimized for code generation.
-    -   ✅ **Groq API**: Blazing-fast inference for models like Llama3.
-    -   ✅ OpenAI, Anthropic, Google Gemini, and 100+ more.
 
-## 🛠️ Setup and Installation
 
-### Prerequisites
+## ✨ How It Works
+Cortex operates on a few core principles to autonomously solve programming challenges.
 
--   Python 3.9+
--   Docker installed and running.
--   An LLM API Key from a supported provider (Mistral, Groq, OpenAI, etc.).
+| Concept                | Description                                                                                                                                   |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| 🧠 Autonomous Reasoning | Utilizes a ReAct (Reason + Act) framework to think step-by-step, analyzing errors and planning corrections without human intervention.        |
+| 🛡️ Secure Execution    | All generated code is executed in an isolated Docker container, preventing any access to your local system and ensuring safety.               |
+| 🎨 Thought Visualization | Translates its internal monologue into abstract art using the FLUX.1 image model, offering a unique glimpse into the AI's "Chain of Thought". |
+| 🔌 LLM Agnostic         | Powered by LiteLLM, Cortex is compatible with over 100 LLMs, including specialized models like Mistral Codestral and high-speed providers like Groq. |
 
-### Instructions
+---
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <your-repo-url>
-    cd self_correcting_code_agent
-    ```
+## 🛠️ Quickstart
 
-2.  **Set up environment variables:**
-    -   Copy the example `.env` file:
-        ```bash
-        cp .env.example .env
-        ```
-    -   **Edit the `.env` file and choose ONE provider** by uncommenting its section and adding your API key.
+**Prerequisites:** Python 3.9+ and Docker must be installed and running.
 
-    -   **Example for Mistral Codestral:**
-        ```
-        # MISTRAL_API_KEY="your_mistral_api_key_here"
-        # LLM_MODEL="codestral/codestral-latest"
-        ```
+1. **Clone & Configure**  
+   Clone the repository and set up your environment file.  
+   Add your API key (e.g., `GROQ_API_KEY` or `MISTRAL_API_KEY`) inside `.env`.
 
-    -   **Example for Groq:**
-        ```
-        # GROQ_API_KEY="your_groq_api_key_here"
-        # LLM_MODEL="groq/llama3-8b-8192"
-        ```
+2. **Build the Sandbox**  
+   Build the secure Docker image for code execution (one-time setup).
 
-3.  **Install dependencies:**
-    -   It's highly recommended to use a virtual environment.
-        ```bash
-        python -m venv venv
-        source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-        ```
-    -   Install the required packages:
-        ```bash
-        pip install -r requirements.txt
-        ```
+3. **Install & Run**  
+   Create a virtual environment, install dependencies, and launch the application.
 
-4.  **Build the Docker image:**
-    -   The agent needs a sandbox environment to run code. Build it once with this command:
-        ```bash
-        docker build -t python_sandbox .
-        ```
+---
 
-## 🏃‍♀️ How to Run
-
-Simply execute the main script:
-
-```bash
-python main.py
+## 💻 Tech Stack
+This project is built with a modern, powerful stack:
+- **Python 3.9+**  
+- **Docker (Isolated Sandbox)**  
+- **LiteLLM (Multi-LLM Compatibility)**  
+- **Mistral Codestral / Groq (High-Performance LLMs)**  
+- **FLUX.1 (Thought-to-Art Model)**  
