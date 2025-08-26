@@ -6,7 +6,16 @@ from rich.console import Console
 console = Console()
 
 class CodeSandbox:
+    """
+    Provides a secure sandbox environment for running Python code using Docker.
+    """
     def __init__(self, image_name="python_sandbox"):
+        """
+        Initializes the CodeSandbox with a Docker client and image name.
+        Checks if Docker is running and accessible.
+        Args:
+            image_name (str): The name of the Docker image to use. Defaults to "python_sandbox".
+        """
         self.client = docker.from_env()
         self.image_name = image_name
         try:
@@ -18,7 +27,16 @@ class CodeSandbox:
             exit(1)
 
     def run(self, code: str, test_cases: str) -> dict:
-        """Runs the given code with test cases in a secure Docker container."""
+        """
+        Runs the given code with test cases in a Docker container.
+
+        Args:
+            code (str): The Python code to execute.
+            test_cases (str): The test cases to run.
+
+        Returns:
+            dict: A dictionary containing the execution result, including success status, stdout, and stderr.
+        """
         full_code = f"{code}\n\n# Test cases\n{test_cases}"
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -51,8 +69,9 @@ class CodeSandbox:
 
             except docker.errors.ContainerError as e:
                 return {"success": False, "stdout": "", "stderr": str(e)}
-            except Exception as e: # Catches timeouts
-                 if 'container' in locals() and container:
+            except Exception as e:
+                # Handle exceptions during container execution, including timeouts.
+                if 'container' in locals() and container:
                     container.stop()
                     container.remove()
-                 return {"success": False, "stdout": "", "stderr": f"Execution timed out or failed: {e}"}
+                return {"success": False, "stdout": "", "stderr": f"Execution timed out or failed: {e}"}
